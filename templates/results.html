@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataFrame Display</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
+	<style type="text/css" media="screen">
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+    <h1>Candidates Matching</h1>
+    {{ table_html | safe }}
+<div>number of candidates: <span>{{candidates_num}}</span></div>
+{% if not terminate %}
+<a href="{{ url_for('terminated',unique_id=unique_id) }}"><button>Terminate</button></a>
+{% endif %}
+{% if terminate and not analyzed %}
+<a href="{{ url_for('analyzed',unique_id=unique_id) }}"><button>Analayze</button></a>
+{% endif %}
+</body>
+</html>

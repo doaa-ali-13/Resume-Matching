@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 	filename='css/form.css') }}">
+</head>
+<body>
+
+    <h1>create a job description</h1>
+    <form method="POST" action="/submitJob/{{unique_id}}">
+     <label for="company_name">Company Name:</label>
+        <input type="text" id="company_name" name="company_name" required><br><br>
+
+        <label for="job_title">Job Title:</label>
+        <input type="text" id="job_title" name="job_title" required><br><br>
+
+        <label for="job_qualifications">Job Qualifications:</label>
+        <textarea id="job_qualifications" name="job_qualifications" rows="5" required></textarea><br><br>
+
+        <label for="job_requirements">Job Requirements:</label>
+        <textarea id="job_requirements" name="job_requirements" rows="5" required></textarea><br><br>
+    <button type="submit">Analyze Resumes</button>
+    </form>
+</body>
+</html>

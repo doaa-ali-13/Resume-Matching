@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', 	filename='css/home.css') }}">
+<title>Home</title>
+</head>
+<body>
+  
+  <div class="container">
+<h1>Welcome to Smart Recruiter App</h1>
+  <h3>let's start by creating a job post!<h3>
+  <a href="{{ url_for('createJobPost',unique_id=unique_id) }}" class="plus-button"> <div  id="cjs">+</div></a>
+<h3>job posts you have created:<h3>
+{% if not jobs %}
+<p>there are no previous job post</p>
+{% endif %}
+    <ul class="square-list">
+{% for job in jobs %}	
+       <a href="{{ url_for('showresults',unique_id=job.url) }}" class="square">
+	 <li >{{job.jobtitle}}</li></a>
+{% endfor %}
+    </ul>
+
+  </div>
+
+</body>
+</html>
